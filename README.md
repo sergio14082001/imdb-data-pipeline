@@ -88,9 +88,74 @@ Este dashboard permite:
 
 ---
 
+🛫 Orquestación del pipeline con Apache Airflow
+
+En la etapa final del proyecto, se utilizó Apache Airflow para automatizar el flujo de trabajo completo, desde la descarga de datos hasta el procesamiento y almacenamiento final. Esta es una práctica común en entornos productivos donde se requiere que los pipelines se ejecuten de forma recurrente y controlada.
+
+📂 Estructura de archivos relevante
+
+```
+Airflow/
+├── dags/
+│   ├── imdb_pipeline_dag.py      # DAG principal del proyecto
+│   ├── data/                     # Archivos .tsv.gz y carpeta processed/
+│   └── scripts/                  # Scripts Python utilizados en cada tarea
+├── docker-compose.yaml          # Configuración de servicios Airflow
+├── Dockerfile                   # Instalación de dependencias adicionales
+├── plugins/
+└── logs/
+```
+
+⚙️ Configuración del entorno con Docker
+
+Se utilizó Docker para levantar todos los servicios necesarios de Airflow:
+
+- Webserver: Interfaz web de monitoreo.
+
+- Scheduler: Encargado de programar y ejecutar tareas.
+
+- Postgres: Base de datos backend para almacenar metadatos.
+
+(No se utilizaron workers ni Celery, dado que se usó el SequentialExecutor por simplicidad.)
+
+
+```
+# Desde la carpeta Airflow/
+docker-compose up -d
+```
+
+Una vez levantado, puedes acceder a la interfaz de Airflow en:
+
+```
+http://localhost:8080
+```
+
+Credenciales por defecto:
+
+- Usuario: airflow
+
+- Contraseña: airflow
+
+---
+
+📌 DAG: imdb_pipeline_dag
+
+El DAG imdb_pipeline_dag.py define las siguientes tareas:
+
+1. Descargar datos: Ejecuta download_data.py.
+
+2. Procesar datos: Ejecuta process_data.py.
+
+3. Unir datasets: Ejecuta joined_data.py.
+
+4. Filtrar top películas: Ejecuta filter_top_movies.py.
+
+Cada tarea se ejecuta de forma secuencial, y los resultados finales se almacenan en formato Parquet dentro de la carpeta data/processed/.
+
+---
+
 📌 Próximos pasos y mejoras sugeridas
 
-- 🔄 **Automatizar el pipeline con Apache Airflow**.
 - 🌍 Publicar el dashboard final en Power BI Service o Tableau Public.
 
 ---
