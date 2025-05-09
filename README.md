@@ -91,8 +91,6 @@ Este dashboard permite:
 📌 Próximos pasos y mejoras sugeridas
 
 - 🔄 **Automatizar el pipeline con Apache Airflow**.
-- 🎭 Incluir otros datasets de IMDb como `name.basics`, `title.crew`, `title.principals` para enriquecer el análisis.
-- 🧠 Calcular un ranking ponderado usando una fórmula basada en `numVotes` y `averageRating`.
 - 🌍 Publicar el dashboard final en Power BI Service o Tableau Public.
 
 ---
