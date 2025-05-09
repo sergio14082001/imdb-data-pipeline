@@ -24,37 +24,20 @@ Git & GitHub |	Control de versiones
 
 ---
 
-🚀 Cómo ejecutar el script de descarga de datos <br/>
+🚀 Descarga de Datos <br/>
 
-Sigue estos pasos para ejecutar el script download_data.py dentro del entorno virtual del proyecto:
+Este proceso se encarga de:
 
-1. Clonar el repositorio (si aplica)<br/>
-```
-git clone https://github.com/tu-usuario/imdb-data-pipeline.git
-cd imdb-data-pipeline
-```
+1. Conectarse al portal oficial de IMDb Datasets.
 
-2. Crear y activar el entorno virtual (solo la primera vez)<br/>
-```
-python -m venv venv
-# Activar entorno:
-# En Windows:
-venv\Scripts\activate
-# En Linux/macOS:
-source venv/bin/activate
-```
-3. Instalar dependencias<br/>
-```
-pip install -r requirements.txt
-```
-4. Ejecutar el script de descarga<br/>
-```
-python scripts/download_data.py
-```
-5. (Opcional) Desactivar entorno virtual<br/>
-```
-deactivate
-```
+2. Descargar los archivos comprimidos:
+
+   - title.basics.tsv.gz
+   
+   - title.ratings.tsv.gz
+
+3. Guardarlos en la carpeta local dags/data/.
+
 ---
 
 📊 Procesamiento y transformación de datos
