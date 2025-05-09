@@ -18,7 +18,7 @@ Herramienta |	Propósito
 |-|-|
 Python |	Programación principal
 PySpark |	Procesamiento distribuido
-Delta Lake |	Almacenamiento confiable
+Docker | Contenedores
 Apache Airflow |	Orquestación de pipelines
 Git & GitHub |	Control de versiones
 
