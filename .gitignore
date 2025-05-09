@@ -1,0 +1,28 @@
+# Carpetas de entorno virtual
+venv/
+.env/
+ENV/
+
+# Logs de Airflow
+airflow/logs/
+
+# Datos procesados (Parquet u otros temporales)
+airflow/dags/data/
+airflow/dags/data/processed/
+airflow/dags/data/*.gz
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivo de Power BI
+*.pbix
